@@ -9,11 +9,11 @@ Widget currentWeather(IconData icon, String temp, String location){
       children: [
         Icon(
           icon,
-          color: Colors.orange,
+          color: Colors.orange[600],
           size: 64.0,
         ),
         SizedBox(
-          height: 10.0,
+          height: 5.0,
         ),
         Text(
           "$temp",
@@ -26,7 +26,7 @@ Widget currentWeather(IconData icon, String temp, String location){
         ),
         Text(
           "$location",
-          style: TextStyle(fontSize: 18.0,color: Color(0xFF5a5a5a)),
+          style: TextStyle(fontSize: 20.0,color: Color(0xFF5a5a5a)),
         ),
       ],
     ),
