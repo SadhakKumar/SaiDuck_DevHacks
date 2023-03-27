@@ -11,7 +11,7 @@ class Weather{
     this.temp,
     this.wind,
     this.humidity,
-    this.fellsLike,
+    this.feelsLike,
     this.pressure});
 
   Weather.fromJson(Map<String, dynamic> json){

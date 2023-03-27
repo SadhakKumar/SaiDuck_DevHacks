@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFf9f9f9),
         elevation: 0.0,
-        title: Text("weather",
-          style: TextStyle(color: Colors.black),
+        title: const Text("Weather",
+          style: TextStyle(color: Colors.black, fontSize: 20.0),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -52,23 +52,24 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Divider(),
-          SizedBox(
-            height: 20.0,
+          const SizedBox(
+            height: 5.0,
           ),
           currentWeather(Icons.wb_sunny_rounded, "26.3", "Mumbai"),
 
-          SizedBox(
-            height: 20.0,
+          const SizedBox(
+            height: 10.0,
           ),
-          Text("Additional Information",
-            style:
-            TextStyle(fontSize: 24.0,
+
+          const Text("Additional Information",
+            style: TextStyle (fontSize: 24.0,
               color: Colors.black,
               fontWeight: FontWeight.bold,
+
             ),
 
           ),
-          Divider(),
+          const Divider(),
 
 
         ],
