@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Weather? data;
 
   Future<void> getData() async{
-    data = await client.getCurrentWeather("mumbai");
+    data = await client.getCurrentWeather("west bengal");
   }
 
   @override
@@ -166,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                   //   ),
                   // ),
                   SizedBox(
-                    height: 30,
+                    height: 140,
                   ),
                   CarouselWithDotsPage(imgList: imgList),
 
