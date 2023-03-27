@@ -1,3 +1,5 @@
+import 'package:devhacks/model/weather_model.dart';
+import 'package:devhacks/services/weather_api_client.dart';
 import 'package:devhacks/widgets/current_weather.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +28,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  WeatherApiClient client = WeatherApiClient();
+  Weather? data;
+
+  Future<void> getData() async{
+    data = await client.getCurrentWeather("mumbai");
+  }
+
+  @override
+  // void initState(){
+  //
+  //   super.initState();
+  //   client.getCurrentWeather("mumbai");
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +51,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFf9f9f9),
         elevation: 0.0,
-        title: Text("weather",
+        title: Text("Weather",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -47,31 +64,64 @@ class _HomePageState extends State<HomePage> {
 
       ),
 
-      body: Column(
+      // body: Column(
+      //
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+      //     const Divider(),
+      //     SizedBox(
+      //       height: 20.0,
+      //     ),
+      //     currentWeather(Icons.wb_sunny_rounded, "26.3", "Mumbai"),
+      //
+      //     SizedBox(
+      //       height: 20.0,
+      //     ),
+      //     Text("Additional Information",
+      //       style:
+      //       TextStyle(fontSize: 24.0,
+      //         color: Colors.black,
+      //         fontWeight: FontWeight.bold,
+      //       ),
+      //
+      //     ),
+      //     Divider(),
+      //
+      //
+      //   ],
+      // ),
+      body: FutureBuilder(
+        future: getData(),
+        builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.done){
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+              const Divider(),
+              SizedBox(
+                height: 20.0,
+              ),
+              currentWeather(Icons.wb_sunny_rounded, "${data!.feelsLike}", "${data!.cityName}"),
 
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Divider(),
-          SizedBox(
-            height: 20.0,
-          ),
-          currentWeather(Icons.wb_sunny_rounded, "26.3", "Mumbai"),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text("Additional Information",
+                style:
+                TextStyle(fontSize: 24.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
 
-          SizedBox(
-            height: 20.0,
-          ),
-          Text("Additional Information",
-            style:
-            TextStyle(fontSize: 24.0,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-
-          ),
-          Divider(),
+              ),
+              Divider(),
 
 
-        ],
+            ],
+            );
+          }
+          return Container();
+        },
       ),
     );
   }
