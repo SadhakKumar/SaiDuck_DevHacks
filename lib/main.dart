@@ -51,8 +51,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFf9f9f9),
         elevation: 0.0,
-        title: Text("Weather",
-          style: TextStyle(color: Colors.black),
+
+        title: const Text("Weather",
+          style: TextStyle(color: Colors.black, fontSize: 20.0),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -63,6 +64,7 @@ class _HomePageState extends State<HomePage> {
 
 
       ),
+
 
       // body: Column(
       //
@@ -122,6 +124,7 @@ class _HomePageState extends State<HomePage> {
           }
           return Container();
         },
+
       ),
     );
   }
