@@ -1,3 +1,4 @@
+import 'package:devhacks/widgets/current_weather.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -42,6 +43,35 @@ class _HomePageState extends State<HomePage> {
           icon: Icon(Icons.menu),
           color: Colors.black,
         ),
+
+
+      ),
+
+      body: Column(
+
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Divider(),
+          SizedBox(
+            height: 20.0,
+          ),
+          currentWeather(Icons.wb_sunny_rounded, "26.3", "Mumbai"),
+
+          SizedBox(
+            height: 20.0,
+          ),
+          Text("Additional Information",
+            style:
+            TextStyle(fontSize: 24.0,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+
+          ),
+          Divider(),
+
+
+        ],
       ),
     );
   }
