@@ -68,9 +68,9 @@ class _CarouselWithDotsPageState extends State<CarouselWithDotsPage> {
         Padding(
           padding: EdgeInsets.all(20),
           child: Text(
-            "Carousel With Image, Text & Dots",
+            "News",
             style: TextStyle(
-              color: Colors.green[700],
+              color: Colors.teal[700],
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
